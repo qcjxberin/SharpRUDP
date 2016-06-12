@@ -17,7 +17,6 @@ namespace SharpRUDP
 
         private int _port;
         private string _address;
-        private bool _isServer;
 
         public class StateObject
         {
@@ -28,7 +27,6 @@ namespace SharpRUDP
         {
             _port = port;
             _address = address;
-            _isServer = true;
             LocalEndPoint = new IPEndPoint(IPAddress.Parse(address), port);
             _socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             _socket.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.ReuseAddress, true);
@@ -40,12 +38,11 @@ namespace SharpRUDP
         {
             _port = port;
             _address = address;
-            _isServer = false;
             bool connect = false;
             IPAddress ipAddress;
             if (IPAddress.TryParse(address, out ipAddress))
             {
-                Console.WriteLine("Connecting to {0}", ipAddress);
+                Console.WriteLine("Connecting to {0}:{1}", ipAddress, port);
                 RemoteEndPoint = new IPEndPoint(ipAddress, port);
                 _socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 _socket.Connect(RemoteEndPoint);
