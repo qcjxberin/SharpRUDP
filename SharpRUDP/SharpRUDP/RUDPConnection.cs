@@ -155,6 +155,7 @@ namespace SharpRUDP
                 {
                     ProcessRecvQueue();
                     SignalPacketRecv.WaitOne(RecvWaitMs);
+                    Thread.Sleep(1);
                 }
             });
             _thKeepAlive = new Thread(() =>
@@ -317,7 +318,8 @@ namespace SharpRUDP
                     p.OnPacketReceivedByDestination = OnPacketReceivedByDestination;
                     SendPacket(p);
                 }
-                cn.PacketId++;
+                lock(_connectionsMutex)
+                    cn.PacketId++;
                 if (!IsServer && cn.Local > SequenceLimit)
                     reset = true;
                 packet = PacketsToSend.First();
@@ -334,7 +336,8 @@ namespace SharpRUDP
                     Dst = destination,
                     Type = RUDPPacketType.RST
                 });
-                cn.Local = IsServer ? ServerStartSequence : ClientStartSequence;
+                lock (_connectionsMutex)
+                    cn.Local = IsServer ? ServerStartSequence : ClientStartSequence;
             }
             return packet.Id;
         }
@@ -350,8 +353,11 @@ namespace SharpRUDP
             RUDPConnectionData cn = GetConnection(p.Dst);
             if (!p.Retransmit)
             {
-                p.Seq = cn.Local;
-                cn.Local++;
+                lock (_connectionsMutex)
+                {
+                    p.Seq = cn.Local;
+                    cn.Local++;
+                }
                 p.Sent = DateTime.Now;
                 lock (cn.Pending)
                     cn.Pending.Add(p);
