@@ -4,6 +4,12 @@
 
 Custom C# implementation of a Reliable UDP (RUDP) algorithm.
 
+### Warning
+
+SharpRUDP is undergoing some heavy structural changes, connections and events will be channel-based, please advise not to use for production environments until this change is done.
+
+## Intro
+
 This project was born because I spent around 2 weeks working on a side project which required reliable UDP packet transmission, and the current options out there weren't up to the task. Why?
 
 - **Codeplex RUDP:** It looks great, but too complicated for using it in a simple app.
