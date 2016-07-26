@@ -1,10 +1,11 @@
 ﻿namespace SharpRUDP
 {
-    public enum ConnectionState
+    public enum State
     {
         OPENING,
+        CONNECTING,
         OPEN,
-        LISTEN,
+        CONNECTED,
         CLOSING,
         CLOSED
     }

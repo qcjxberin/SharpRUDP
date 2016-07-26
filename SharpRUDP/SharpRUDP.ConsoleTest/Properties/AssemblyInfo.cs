@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SharpRUDP.LiveTest")]
+[assembly: AssemblyTitle("SharpRUDP.ConsoleTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SharpRUDP.LiveTest")]
+[assembly: AssemblyProduct("SharpRUDP.ConsoleTest")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c1a5a429-fa58-4727-97eb-6257617f057e")]
+[assembly: Guid("761d4959-b52e-4825-869f-136e429b0ad6")]
 
 // Version information for an assembly consists of the following four values:
 //
