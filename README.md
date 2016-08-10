@@ -42,4 +42,4 @@ Well, I don't like to brag, but for sending and receiving 100 packets, splitting
 
 Created by Alemar Osorio (DARKGuy).
 
-Licensing is temporary GPL. For now, no commercial usage is allowed. This will change in the future though.
+This library is dual-licensed, you can either use it GPL or if you want to get money off an app using it, please contact me at darkguy2k8@gmail.com, I'm sure we can arrange something, I don't bite! :D
