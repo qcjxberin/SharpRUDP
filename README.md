@@ -34,7 +34,7 @@ For a detailed (yet simple!) sample have a look at [PacketTest.cs](SharpRUDP/Sha
 
 Well, I don't like to brag, but...
 
-![Test Run times](testrun.png)
+![Test Run times](testrun.PNG)
 
 ## About & License
 
