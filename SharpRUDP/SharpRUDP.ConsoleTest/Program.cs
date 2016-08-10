@@ -19,7 +19,7 @@ namespace SharpRUDP.ConsoleTest
             {
                 channel.Connect();
             };
-            c.RequestChannel(c.RemoteAddress, "TEST");
+            c.RequestChannel(c.RemoteEndpoint, "TEST");
 
             Console.ReadKey();
 

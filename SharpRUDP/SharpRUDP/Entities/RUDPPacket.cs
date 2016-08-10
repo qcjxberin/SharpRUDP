@@ -15,6 +15,8 @@ namespace SharpRUDP
         public bool Processed { get; set; }
         [ScriptIgnore]
         public DateTime Sent { get; set; }
+        [ScriptIgnore]
+        public int SentTicks { get; set; }
 
         public int Seq { get; set; }
         public int Channel { get; set; }

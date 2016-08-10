@@ -17,6 +17,7 @@ namespace SharpRUDP
         public event dlgSocketError OnSocketError;
 
         internal Socket _socket;
+        internal bool _debugEnabled = false;
 
         private int _port;
         private string _address;
@@ -25,6 +26,7 @@ namespace SharpRUDP
         private EndPoint ep = new IPEndPoint(IPAddress.Any, 0);
         private AsyncCallback recv = null;
         private static Logger Log = LogManager.GetCurrentClassLogger();
+        private bool _isDisposed;
 
         public class StateObject
         {
@@ -93,13 +95,15 @@ namespace SharpRUDP
 
         public virtual int PacketSending(IPEndPoint endPoint, byte[] data, int length)
         {
-            Log.Trace("SEND -> {0}: {1}", endPoint, Encoding.ASCII.GetString(data, 0, length));
+            if(_debugEnabled)
+                Log.Trace("SEND -> {0}: {1}", endPoint, Encoding.ASCII.GetString(data, 0, length));
             return -1;
         }
 
         public void PacketReceive(IPEndPoint ep, byte[] data, int length)
         {
-            Log.Trace("RECV <- {0}: {1}", ep, Encoding.ASCII.GetString(data, 0, length));
+            if (_debugEnabled)
+                Log.Trace("RECV <- {0}: {1}", ep, Encoding.ASCII.GetString(data, 0, length));
             OnDataReceived?.Invoke(ep, data, length);
         }
 
@@ -110,9 +114,18 @@ namespace SharpRUDP
 
         public void Dispose()
         {
-            _socket.Shutdown(SocketShutdown.Both);
-            Dispose(true);
+            if (!_isDisposed)
+            {
+                _socket.Shutdown(SocketShutdown.Both);
+                Dispose(true);
+                _isDisposed = true;
+            }
             GC.SuppressFinalize(this);
+        }
+
+        internal void Disconnect()
+        {
+            Dispose();
         }
     }
 }
