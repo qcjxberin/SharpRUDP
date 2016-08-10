@@ -4,7 +4,7 @@
 
 Custom C# implementation of a Reliable UDP (RUDP) algorithm.
 
-Do you like this project? are you using it happily? consider donating! [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=59LH5AHNQ8XZW) I've spent almost 7 months developing this and counting, in both full-time and part-time ways. Your support keeps these high-quality projects alive! :)
+Do you like this project? are you using it happily? consider donating! [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZBPVPGSVB3D86) I've spent almost 7 months developing this and counting, in both full-time and part-time ways. Your support keeps these high-quality projects alive! :)
 
 ## Intro
 
