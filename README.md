@@ -32,7 +32,7 @@ For a detailed (yet simple!) sample have a look at [PacketTest.cs](SharpRUDP/Sha
 
 ## Is it fast?
 
-Well, I don't like to brag, but...
+Well, I don't like to brag, but for sending and receiving 100 packets, splitting large packets into 8192 bytes (approx) each...
 
 ![Test Run times](testrun.PNG)
 
