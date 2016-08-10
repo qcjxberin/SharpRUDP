@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{65CCEF8D-4F60-49B9-81D4-2A71570F1A20}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{761D4959-B52E-4825-869F-136E429B0AD6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpRUDP</RootNamespace>
-    <AssemblyName>SharpRUDP</AssemblyName>
+    <RootNamespace>SharpRUDP.ConsoleTest</RootNamespace>
+    <AssemblyName>SharpRUDP.ConsoleTest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,13 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.3.5\lib\net40\NLog.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,27 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\RUDPPacketType.cs" />
-    <Compile Include="Base\RUDPSocket.cs" />
-    <Compile Include="Base\RUDPState.cs" />
-    <Compile Include="Entities\RUDPInternalPacket.cs" />
-    <Compile Include="Entities\RUDPPacket.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RUDPChannel.cs" />
-    <Compile Include="RUDPConnection.cs" />
-    <Compile Include="Serializers\RUDPBinarySerializer.cs" />
-    <Compile Include="Serializers\RUDPJSONSerializer.cs" />
-    <Compile Include="Serializers\RUDPSerializeMode.cs" />
-    <Compile Include="Serializers\RUDPSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\SharpRUDP\SharpRUDP.csproj">
+      <Project>{8c0f1f81-a85c-4f14-a5ee-ac6c55a74757}</Project>
+      <Name>SharpRUDP</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

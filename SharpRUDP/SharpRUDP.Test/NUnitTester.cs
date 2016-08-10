@@ -9,10 +9,8 @@ namespace SharpRUDP.Test
     {
         public static NUnitTestClass[] testOrder = new NUnitTestClass[] {
             new ConnectionTest() { TestName = "Connect & Disconnect" },
-            new ServerDisconnectionTest() { TestName = "Server disconnection" },
-            new ClientDisconnectionTest() { TestName = "Client disconnection" },
-            new KeepAliveTest(true) { TestName = "KeepAlive (Client disconnect)" },
-            new KeepAliveTest(false) { TestName = "KeepAlive (Server disconnect)" },
+            //new KeepAliveTest(true) { TestName = "KeepAlive (Client disconnect)" },
+            //new KeepAliveTest(false) { TestName = "KeepAlive (Server disconnect)" },
             new PacketTest(100, 8, 1) { TestName = "8 bytes" },
             new PacketTest(100, 32, 1) { TestName = "32 bytes" },
             new PacketTest(100, 64, 1) { TestName = "64 bytes" },
